@@ -1,0 +1,12 @@
+C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\bin\Debug\Chinese Chess.exe.config
+C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\bin\Debug\Chinese Chess.exe
+C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\bin\Debug\Chinese Chess.pdb
+C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.csprojAssemblyReference.cache
+C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.Form1.resources
+C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.MainMenu.resources
+C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.Properties.Resources.resources
+C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.csproj.GenerateResource.cache
+C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.csproj.CoreCompileInputs.cache
+C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.exe
+C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.pdb
+C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.Game.resources
