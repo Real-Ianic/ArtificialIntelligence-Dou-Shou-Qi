@@ -10,3 +10,15 @@ C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese
 C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.exe
 C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.pdb
 C:\Users\adria\Documents\Proyek AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.Game.resources
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Chess\Chinese Chess\bin\Debug\Chinese Chess.exe.config
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Chess\Chinese Chess\bin\Debug\Chinese Chess.exe
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Chess\Chinese Chess\bin\Debug\Chinese Chess.pdb
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.Form1.resources
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.Game.resources
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.MainMenu.resources
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.Properties.Resources.resources
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.csproj.GenerateResource.Cache
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.csproj.CoreCompileInputs.cache
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.exe
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.pdb
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.csprojResolveAssemblyReference.cache

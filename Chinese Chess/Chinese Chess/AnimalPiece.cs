@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 
 namespace Chinese_Chess
 {
@@ -13,6 +16,9 @@ namespace Chinese_Chess
         private bool canJump;
         private bool canSwim;
         private int player;
+        private Image icon;
+
+        
 
         public AnimalPiece(int strength,int player)
         {
@@ -21,56 +27,65 @@ namespace Chinese_Chess
             if(strength == 1)
             {
                 //Its a fookin mouse
-                Name = "Rat";
+                Name = "Rat" + "\n\n\n\n(player " + player  + ")";
+                icon = Image.FromFile("animalicon/mouse.png");
                 CanJump = false;
                 CanSwim = true;
             }
             else if(strength == 2)
             {
                 //Its a neko (cat)
-                Name = "Cat";
+                Name = "Cat" + "\n\n\n\n(player " + player + ")";
+                icon = Image.FromFile("animalicon/cat.png");
+
                 CanJump = false;
                 CanSwim = false;
             }
             else if(strength == 3)
             {
                 //Its a wolf
-                Name = "Wolf";
+                Name = "Wolf" + "\n\n\n\n(player " + player + ")";
+                icon = Image.FromFile("animalicon/wolf.png");
                 CanJump = false;
                 CanSwim = false;
             }
             else if(strength == 4)
             {
                 //Its a dog, bark bark
-                Name = "Dog";
+                Name = "Dog" + "\n\n\n\n(player " + player + ")";
+                icon = Image.FromFile("animalicon/dog.png");
                 CanJump = false;
                 CanSwim = false;
             }
             else if(strength == 5)
             {
                 //Leopard / panther, idk i say leopard
-                Name = "Leopard";
+                Name = "Leopard" + "\n\n\n\n(player " + player + ")";
+                icon = Image.FromFile("animalicon/leopard.png");
                 CanJump = true;
                 CanSwim = false;
             }
             else if(strength == 6)
             {
                 //Tiger
-                Name = "Tiger";
+                Name = "Tiger" + "\n\n\n\n(player " + player + ")";
+                icon = Image.FromFile("animalicon/tiger.png");
                 CanJump = false;
                 CanSwim = false;
             }
             else if(strength == 7)
             {
                 //Lion
-                Name = "Lion";
+                Name = "Lion" + "\n\n\n\n(player " + player + ")";
+                icon = Image.FromFile("animalicon/lion.png");
                 CanJump = false;
                 CanSwim = false;
             }
             else if(strength == 8)
             {
                 //Its hadoop
-                Name = "Elephant";
+                Name = "Elephant" + "\n\n\n\n(player " + player + ")";
+                icon = Image.FromFile("animalicon/elephant.png");
                 CanJump = false;
                 CanSwim = false;
             }
@@ -85,5 +100,8 @@ namespace Chinese_Chess
         public int Strength { get => strength; set => strength = value; }
         public bool CanJump { get => canJump; set => canJump = value; }
         public bool CanSwim { get => canSwim; set => canSwim = value; }
+        public Image Icon { get => icon; set => icon = value; }
+
     }
 }
+

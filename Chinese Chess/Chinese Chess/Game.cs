@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
+
 
 namespace Chinese_Chess
 {
@@ -40,8 +42,8 @@ namespace Chinese_Chess
                 {
                     //Membuat tampilan Peta
                     mapButton[j, i] = new Button();
-                    mapButton[j, i].Size = new Size(100,100);
-                    mapButton[j, i].Location = new Point(100 + j * 100,100 + i * 100);
+                    mapButton[j, i].Size = new Size(75,75);
+                    mapButton[j, i].Location = new Point(25 + j * 75,25 + i * 75);
                     mapButton[j, i].Click += new EventHandler(mapClick);
                     this.Controls.Add(mapButton[j, i]);
 
@@ -65,7 +67,29 @@ namespace Chinese_Chess
             mapBoard[4, 5].IsWater = true; mapButton[4, 5].BackColor = Color.Blue;
             mapBoard[5, 5].IsWater = true; mapButton[5, 5].BackColor = Color.Blue;
 
-            mapBoard[0, 8].CurrentPiece = new AnimalPiece(1,1);
+            //PLAYER 1 (atas)
+            mapBoard[6, 2].CurrentPiece = new AnimalPiece(8, 1); //elephant
+            mapBoard[4, 2].CurrentPiece = new AnimalPiece(3, 1); //wolf
+            mapBoard[2, 2].CurrentPiece = new AnimalPiece(5, 1); //leopard 
+            mapBoard[0, 2].CurrentPiece = new AnimalPiece(1, 1); //rat
+                                                             
+            mapBoard[5, 1].CurrentPiece = new AnimalPiece(2, 1); //cat
+            mapBoard[1, 1].CurrentPiece = new AnimalPiece(4, 1); //dog
+                                                             
+            mapBoard[6, 0].CurrentPiece = new AnimalPiece(6, 1); //tiger
+            mapBoard[0, 0].CurrentPiece = new AnimalPiece(7, 1); //lion
+
+            //PLAYER 2 (bawah)
+            mapBoard[0, 6].CurrentPiece = new AnimalPiece(8,2); //elephant
+            mapBoard[2, 6].CurrentPiece = new AnimalPiece(3,2); //wolf
+            mapBoard[4, 6].CurrentPiece = new AnimalPiece(5,2); //leopard 
+            mapBoard[6, 6].CurrentPiece = new AnimalPiece(1,2); //rat
+
+            mapBoard[1, 7].CurrentPiece = new AnimalPiece(2,2); //cat
+            mapBoard[5, 7].CurrentPiece = new AnimalPiece(4,2); //dog
+
+            mapBoard[0, 8].CurrentPiece = new AnimalPiece(6,2); //tiger
+            mapBoard[6, 8].CurrentPiece = new AnimalPiece(7,2); //lion
 
 
             //Turn starts from player 1
@@ -138,10 +162,17 @@ namespace Chinese_Chess
                     if(mapBoard[j,i].CurrentPiece != null)
                     {
                         mapButton[j, i].Text = mapBoard[j, i].CurrentPiece.Name;
+                        //mapButton[j, i].Image = mapBoard[j, i].CurrentPiece.Icon;
+                        mapButton[j, i].BackgroundImage = mapBoard[j, i].CurrentPiece.Icon;
+                        mapButton[j, i].BackgroundImageLayout = ImageLayout.Center;
+
+
+
                     }
                     else
                     {
                         mapButton[j, i].Text = "";
+                        mapButton[j, i].BackgroundImage = null;
                     }
                 }
             }
