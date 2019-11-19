@@ -22,3 +22,14 @@ D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Ch
 D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.exe
 D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.pdb
 D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT XIANG QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.csprojResolveAssemblyReference.cache
+E:\Git Projects\AI\Chinese Chess\Chinese Chess\bin\Debug\Chinese Chess.exe.config
+E:\Git Projects\AI\Chinese Chess\Chinese Chess\bin\Debug\Chinese Chess.exe
+E:\Git Projects\AI\Chinese Chess\Chinese Chess\bin\Debug\Chinese Chess.pdb
+E:\Git Projects\AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.csprojAssemblyReference.cache
+E:\Git Projects\AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.Form1.resources
+E:\Git Projects\AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.Game.resources
+E:\Git Projects\AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.MainMenu.resources
+E:\Git Projects\AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.Properties.Resources.resources
+E:\Git Projects\AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.csproj.GenerateResource.cache
+E:\Git Projects\AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.exe
+E:\Git Projects\AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.pdb

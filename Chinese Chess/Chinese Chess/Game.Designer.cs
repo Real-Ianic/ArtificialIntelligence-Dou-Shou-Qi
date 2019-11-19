@@ -28,20 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.currentAnimal = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // currentAnimal
+            // 
+            this.currentAnimal.AutoSize = true;
+            this.currentAnimal.Location = new System.Drawing.Point(754, 107);
+            this.currentAnimal.Name = "currentAnimal";
+            this.currentAnimal.Size = new System.Drawing.Size(46, 17);
+            this.currentAnimal.TabIndex = 0;
+            this.currentAnimal.Text = "label1";
             // 
             // Game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.currentAnimal);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Game";
             this.Text = "Game";
             this.Load += new System.EventHandler(this.Game_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label currentAnimal;
     }
 }

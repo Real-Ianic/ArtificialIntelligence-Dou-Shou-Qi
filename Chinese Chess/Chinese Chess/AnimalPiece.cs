@@ -101,7 +101,7 @@ namespace Chinese_Chess
         public bool CanJump { get => canJump; set => canJump = value; }
         public bool CanSwim { get => canSwim; set => canSwim = value; }
         public Image Icon { get => icon; set => icon = value; }
-
+        public int Player { get => player; }
     }
 }
 
