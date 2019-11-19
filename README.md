@@ -1,4 +1,4 @@
-# ArtificialIntelligence-XiangQi
+# ArtificialIntelligence-Dou Shou Qi
 Sebuah game bernama "XiangQi" atau Chinese Chess dengan AI yang menggunakan algoritma random-only #RNGgod
 
 # Rules:
