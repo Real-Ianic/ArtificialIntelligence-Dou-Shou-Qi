@@ -34,7 +34,7 @@ namespace Chinese_Chess
         {
             //Player vs Player
             Form1 parentForm = (Form1)this.MdiParent;
-            parentForm.NewGame();
+            parentForm.NewGame("pvp");
         }
     }
 }

@@ -24,9 +24,9 @@ namespace Chinese_Chess
             menu.Show();
         }
 
-        public void NewGame()
+        public void NewGame(String gameType)
         {
-            Game newGame = new Game();
+            Game newGame = new Game(gameType);
             newGame.MdiParent = this;
             newGame.Show();
         }

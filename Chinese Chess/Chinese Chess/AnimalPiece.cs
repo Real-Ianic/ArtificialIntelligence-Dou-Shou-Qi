@@ -96,6 +96,13 @@ namespace Chinese_Chess
             }
         }
 
+        //Returns The Highest 
+        public bool checkEat(AnimalPiece tobeEaten)
+        {
+            if (this.strength >= tobeEaten.strength) return true;
+            else return false;
+        }
+
         public string Name { get => name; set => name = value; }
         public int Strength { get => strength; set => strength = value; }
         public bool CanJump { get => canJump; set => canJump = value; }

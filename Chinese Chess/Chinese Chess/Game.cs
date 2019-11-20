@@ -14,6 +14,11 @@ namespace Chinese_Chess
 {
     public partial class Game : Form
     {
+        //Players
+        Player p1;
+        Player p2;
+
+
         //Data Saved Variables
         GameBoard gBoard;
 
@@ -23,9 +28,24 @@ namespace Chinese_Chess
         int xPieceChosen;
         int yPieceChosen;
 
-        public Game()
+        public Game(String gameType)
         {
             InitializeComponent();
+
+            if(gameType == "pvp")
+            {
+                //Harap nanti menggunakan Message Box untuk input nama;
+                p1 = new Human("Adrian");
+                p2 = new Human("Jose");
+            }
+            else if(gameType == "pve")
+            {
+
+            }
+            else if(gameType == "eve")
+            {
+
+            }
         }
 
 
@@ -55,45 +75,138 @@ namespace Chinese_Chess
         //Function untuk semua button yang ada di peta
         private void mapClick(object sender, EventArgs e)
         {
-            Button tempButton = (Button)sender;
-            int xButton = -1;
-            int yButton = -1;
-
-            //Untuk mendapatkan Index dari Button yang akan di click
-            for (int i = 0; i < 9; i++)
+            bool p1Moved = false;
+            if(p1 is Human)
             {
-                for (int j = 0; j < 7; j++)
+                Button tempButton = (Button)sender;
+                int xButton = -1;
+                int yButton = -1;
+
+                //Untuk mendapatkan Index dari Button yang akan di click
+                for (int i = 0; i < 9; i++)
                 {
-                    if (gBoard.mapBoard[j, i].TheButton == tempButton)
+                    for (int j = 0; j < 7; j++)
                     {
-                        yButton = i;
-                        xButton = j;
-                        //MessageBox.Show("X : "+j +" - Y : " + i); // Harap comment line ini, hanya untuk debug
+                        if (gBoard.mapBoard[j, i].TheButton == tempButton)
+                        {
+                            yButton = i;
+                            xButton = j;
+                            //MessageBox.Show("X : "+j +" - Y : " + i); // Harap comment line ini, hanya untuk debug
+                        }
                     }
                 }
-            }
-            
-            /*
-             * NOTE CURRENT PIECE ERROR KETIKA DI CLICK UNTUK CLICK KE 2, HARAP DIGANTI -ian
-             */ 
 
-            if(gBoard.mapBoard[xButton,yButton].CurrentPiece.Player == turn )
-            {
 
                 if (!movePiece)
                 {
-                    //First Click
                     if (gBoard.mapBoard[xButton, yButton].CurrentPiece != null)
                     {
-                        //Boleh Gerak karena di kotak itu ada hewan kayak kamu
-                        movePiece = true;
-                        xPieceChosen = xButton;
-                        yPieceChosen = yButton;
-                        currentAnimal.Text = $"Current Animal : {gBoard.mapBoard[xButton, yButton].CurrentPiece.Name}";
+                        if (gBoard.mapBoard[xButton, yButton].CurrentPiece.Player == turn)
+                        {
+                            //First Click
+                            if (gBoard.mapBoard[xButton, yButton].CurrentPiece != null)
+                            {
+                                //Boleh Gerak karena di kotak itu ada hewan kayak kamu
+                                movePiece = true;
+                                xPieceChosen = xButton;
+                                yPieceChosen = yButton;
+                                currentAnimal.Text = $"Current Animal : {gBoard.mapBoard[xButton, yButton].CurrentPiece.Name}";
+                                p1Moved = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Gak ada hewannya lur");
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    //Second Click
+                    if (gBoard.mapBoard[xButton, yButton].CurrentPiece == null && (Math.Abs(xButton - xPieceChosen) + Math.Abs(yButton - yPieceChosen) == 1))
+                    {
+                        if(gBoard.mapBoard[xButton,yButton].IsWater)
+                        {
+                            if (gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece.CanSwim)
+                            {
+                                //BOLEH GERAK
+                                gBoard.mapBoard[xButton, yButton].CurrentPiece = gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece;
+                                gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece = null;
+                                movePiece = false;
+                                currentAnimal.Text = "Current Animal : None";
+                                changeTurns();
+                                p1Moved = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Unable to Swim :o");
+                            }
+                        }
+                        else
+                        {
+                            //BOLEH GERAK
+                            gBoard.mapBoard[xButton, yButton].CurrentPiece = gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece;
+                            gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece = null;
+                            movePiece = false;
+                            currentAnimal.Text = "Current Animal : None";
+                            changeTurns();
+                            p1Moved = true;
+                            MessageBox.Show("HALO JANCPK");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Gak ada hewannya lur");
+                        MessageBox.Show("Invalid Move");
+                    }
+                }
+                refreshMap();
+            }
+            else
+            {
+                //AI MOVE HERE
+            }
+
+            if(p2 is Human && !p1Moved)
+            {
+                Button tempButton = (Button)sender;
+                int xButton = -1;
+                int yButton = -1;
+
+                //Untuk mendapatkan Index dari Button yang akan di click
+                for (int i = 0; i < 9; i++)
+                {
+                    for (int j = 0; j < 7; j++)
+                    {
+                        if (gBoard.mapBoard[j, i].TheButton == tempButton)
+                        {
+                            yButton = i;
+                            xButton = j;
+                            //MessageBox.Show("X : "+j +" - Y : " + i); // Harap comment line ini, hanya untuk debug
+                        }
+                    }
+                }
+
+
+                if (!movePiece)
+                {
+                    if (gBoard.mapBoard[xButton, yButton].CurrentPiece != null)
+                    {
+                        if (gBoard.mapBoard[xButton, yButton].CurrentPiece.Player == turn)
+                        {
+                            //First Click
+                            if (gBoard.mapBoard[xButton, yButton].CurrentPiece != null)
+                            {
+                                //Boleh Gerak karena di kotak itu ada hewan kayak kamu
+                                movePiece = true;
+                                xPieceChosen = xButton;
+                                yPieceChosen = yButton;
+                                currentAnimal.Text = $"Current Animal : {gBoard.mapBoard[xButton, yButton].CurrentPiece.Name}";
+                            }
+                            else
+                            {
+                                MessageBox.Show("Gak ada hewannya lur");
+                            }
+                        }
                     }
                 }
                 else
@@ -115,7 +228,11 @@ namespace Chinese_Chess
                 }
                 refreshMap();
             }
-            else MessageBox.Show("Gilirannya siapa lur");
+            else
+            {
+                //AI MOVE HERE
+            }
+            
         }
 
         //Hanya merefresh button yang ada dengan data yang ada
