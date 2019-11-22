@@ -13,10 +13,12 @@ namespace Chinese_Chess
     {
         private string name;
         private int strength;
+        private int maxstrength;
         private bool canJump;
         private bool canSwim;
         private int player;
         private Image icon;
+        
 
         
 
@@ -24,10 +26,11 @@ namespace Chinese_Chess
         {
             this.Strength = strength;
             this.player = player;
+            this.maxstrength = strength;
             if(strength == 1)
             {
                 //Its a fookin mouse
-                Name = "Rat" + "\n\n\n\n(player " + player  + ")";
+                Name = "Mouse" + "\n\n\n\n(player " + player  + ")";
                 icon = Image.FromFile("animalicon/mouse.png");
                 CanJump = false;
                 CanSwim = true;
@@ -62,7 +65,7 @@ namespace Chinese_Chess
                 //Leopard / panther, idk i say leopard
                 Name = "Leopard" + "\n\n\n\n(player " + player + ")";
                 icon = Image.FromFile("animalicon/leopard.png");
-                CanJump = true;
+                CanJump = false;
                 CanSwim = false;
             }
             else if(strength == 6)
@@ -70,7 +73,7 @@ namespace Chinese_Chess
                 //Tiger
                 Name = "Tiger" + "\n\n\n\n(player " + player + ")";
                 icon = Image.FromFile("animalicon/tiger.png");
-                CanJump = false;
+                CanJump = true;
                 CanSwim = false;
             }
             else if(strength == 7)
@@ -78,7 +81,7 @@ namespace Chinese_Chess
                 //Lion
                 Name = "Lion" + "\n\n\n\n(player " + player + ")";
                 icon = Image.FromFile("animalicon/lion.png");
-                CanJump = false;
+                CanJump = true;
                 CanSwim = false;
             }
             else if(strength == 8)
@@ -105,6 +108,7 @@ namespace Chinese_Chess
 
         public string Name { get => name; set => name = value; }
         public int Strength { get => strength; set => strength = value; }
+        public int maxStrength { get => maxstrength; set => maxstrength = value; }
         public bool CanJump { get => canJump; set => canJump = value; }
         public bool CanSwim { get => canSwim; set => canSwim = value; }
         public Image Icon { get => icon; set => icon = value; }

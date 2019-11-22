@@ -38,18 +38,18 @@
             this.currentAnimal.Location = new System.Drawing.Point(566, 87);
             this.currentAnimal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.currentAnimal.Name = "currentAnimal";
-            this.currentAnimal.Size = new System.Drawing.Size(35, 13);
+            this.currentAnimal.Size = new System.Drawing.Size(110, 13);
             this.currentAnimal.TabIndex = 0;
-            this.currentAnimal.Text = "label1";
+            this.currentAnimal.Text = "Current Animal : None";
             // 
             // labelTurn
             // 
             this.labelTurn.AutoSize = true;
             this.labelTurn.Location = new System.Drawing.Point(566, 111);
             this.labelTurn.Name = "labelTurn";
-            this.labelTurn.Size = new System.Drawing.Size(35, 13);
+            this.labelTurn.Size = new System.Drawing.Size(81, 13);
             this.labelTurn.TabIndex = 1;
-            this.labelTurn.Text = "label1";
+            this.labelTurn.Text = "Current Turn : 1";
             // 
             // Game
             // 

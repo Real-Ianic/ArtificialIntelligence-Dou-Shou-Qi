@@ -45,3 +45,15 @@ D:\Kuliah\Semester 5\PROYEK\AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Che
 D:\Kuliah\Semester 5\PROYEK\AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.csproj.CoreCompileInputs.cache
 D:\Kuliah\Semester 5\PROYEK\AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.exe
 D:\Kuliah\Semester 5\PROYEK\AI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.pdb
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT DOU SHOU QI\Chinese Chess\Chinese Chess\bin\Debug\Chinese Chess.exe.config
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT DOU SHOU QI\Chinese Chess\Chinese Chess\bin\Debug\Chinese Chess.exe
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT DOU SHOU QI\Chinese Chess\Chinese Chess\bin\Debug\Chinese Chess.pdb
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT DOU SHOU QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.csprojResolveAssemblyReference.cache
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT DOU SHOU QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.Form1.resources
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT DOU SHOU QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.Game.resources
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT DOU SHOU QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.MainMenu.resources
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT DOU SHOU QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese_Chess.Properties.Resources.resources
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT DOU SHOU QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.csproj.GenerateResource.Cache
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT DOU SHOU QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.csproj.CoreCompileInputs.cache
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT DOU SHOU QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.exe
+D:\KULIAH\semester5\artificial intelligence [AI]\GIT PROJECT DOU SHOU QI\Chinese Chess\Chinese Chess\obj\Debug\Chinese Chess.pdb
