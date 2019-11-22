@@ -29,24 +29,35 @@
         private void InitializeComponent()
         {
             this.currentAnimal = new System.Windows.Forms.Label();
+            this.labelTurn = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // currentAnimal
             // 
             this.currentAnimal.AutoSize = true;
-            this.currentAnimal.Location = new System.Drawing.Point(754, 107);
+            this.currentAnimal.Location = new System.Drawing.Point(566, 87);
+            this.currentAnimal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.currentAnimal.Name = "currentAnimal";
-            this.currentAnimal.Size = new System.Drawing.Size(46, 17);
+            this.currentAnimal.Size = new System.Drawing.Size(35, 13);
             this.currentAnimal.TabIndex = 0;
             this.currentAnimal.Text = "label1";
             // 
+            // labelTurn
+            // 
+            this.labelTurn.AutoSize = true;
+            this.labelTurn.Location = new System.Drawing.Point(566, 111);
+            this.labelTurn.Name = "labelTurn";
+            this.labelTurn.Size = new System.Drawing.Size(35, 13);
+            this.labelTurn.TabIndex = 1;
+            this.labelTurn.Text = "label1";
+            // 
             // Game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelTurn);
             this.Controls.Add(this.currentAnimal);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Game";
             this.Text = "Game";
             this.Load += new System.EventHandler(this.Game_Load);
@@ -58,5 +69,6 @@
         #endregion
 
         private System.Windows.Forms.Label currentAnimal;
+        private System.Windows.Forms.Label labelTurn;
     }
 }

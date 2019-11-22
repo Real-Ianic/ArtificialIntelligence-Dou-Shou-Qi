@@ -18,7 +18,6 @@ namespace Chinese_Chess
         Player p1;
         Player p2;
 
-
         //Data Saved Variables
         GameBoard gBoard;
 
@@ -68,15 +67,40 @@ namespace Chinese_Chess
                     this.Controls.Add(gBoard.mapBoard[j, i].TheButton);
                 }
             }
-
             refreshMap();
+        }
+
+        // Void to Move a Piece
+        private void movePieceTo(int xButton, int yButton)
+        {
+            gBoard.mapBoard[xButton, yButton].CurrentPiece = gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece;
+            gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece = null;
+            movePiece = false;
+            changeTurns();
+            currentAnimal.Text = $"Current Animal: None";
+        }
+
+        private void selectPiece(int xButton, int yButton)
+        {
+            movePiece = true;
+            xPieceChosen = xButton;
+            yPieceChosen = yButton;
+            currentAnimal.Text = $"Current Animal : {gBoard.mapBoard[xButton, yButton].CurrentPiece.Name}";
+        }
+
+        // Void to Cancel Selection / Deselect Animal
+        private void cancelSelect()
+        {
+            xPieceChosen = -1;
+            yPieceChosen = -1;
+            movePiece = false;
+            currentAnimal.Text = $"Current Animal : None";
         }
 
         //Function untuk semua button yang ada di peta
         private void mapClick(object sender, EventArgs e)
         {
-            bool p1Moved = false;
-            if(p1 is Human)
+            if(p1 is Human && turn == 1)
             {
                 Button tempButton = (Button)sender;
                 int xButton = -1;
@@ -96,77 +120,91 @@ namespace Chinese_Chess
                     }
                 }
 
-
-                if (!movePiece)
+                // Check Wheter is Any Animal Selected.. ( First Click Check )
+                if(!movePiece)
                 {
+                    // check cliked is null ?
                     if (gBoard.mapBoard[xButton, yButton].CurrentPiece != null)
                     {
+                        //check wheter selected animal belongs to this player
                         if (gBoard.mapBoard[xButton, yButton].CurrentPiece.Player == turn)
                         {
-                            //First Click
-                            if (gBoard.mapBoard[xButton, yButton].CurrentPiece != null)
-                            {
-                                //Boleh Gerak karena di kotak itu ada hewan kayak kamu
-                                movePiece = true;
-                                xPieceChosen = xButton;
-                                yPieceChosen = yButton;
-                                currentAnimal.Text = $"Current Animal : {gBoard.mapBoard[xButton, yButton].CurrentPiece.Name}";
-                                p1Moved = true;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Gak ada hewannya lur");
-                            }
+                            //this is first click
+                            selectPiece(xButton, yButton);
                         }
                     }
                 }
                 else
                 {
-                    //Second Click
-                    if (gBoard.mapBoard[xButton, yButton].CurrentPiece == null && (Math.Abs(xButton - xPieceChosen) + Math.Abs(yButton - yPieceChosen) == 1))
+                    // If it's a second click :)
+                    //check whether the dest node is null and is valid move (1 tile away)
+                    if(gBoard.mapBoard[xButton, yButton].CurrentPiece == null && (Math.Abs(xButton - xPieceChosen) + Math.Abs(yButton - yPieceChosen) == 1))
                     {
-                        if(gBoard.mapBoard[xButton,yButton].IsWater)
+                        // if this a valid move then
+                        //check wheter dest node is water or not
+                        if (gBoard.mapBoard[xButton, yButton].IsWater)
                         {
-                            if (gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece.CanSwim)
+                            // if dest is water then
+                            // check wheter current animal piece can swim, jump, or cannot both
+                            if(gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece.CanSwim)
                             {
-                                //BOLEH GERAK
-                                gBoard.mapBoard[xButton, yButton].CurrentPiece = gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece;
-                                gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece = null;
-                                movePiece = false;
-                                currentAnimal.Text = "Current Animal : None";
-                                changeTurns();
-                                p1Moved = true;
+                                // if current animal can swim
+                                // move current animal to dest
+                                movePieceTo(xButton, yButton);
+                            }
+                            else if(gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece.CanJump)
+                            {
+                                // if current animal can jump
+                                // move current animal to edge of water (Currently not working / not yet done)
+                                movePieceTo(xButton, yButton);
                             }
                             else
                             {
-                                MessageBox.Show("Unable to Swim :o");
+                                // if animal cannot move, then move is invalid
+                                MessageBox.Show("Invalid Move!");
                             }
                         }
                         else
                         {
-                            //BOLEH GERAK
-                            gBoard.mapBoard[xButton, yButton].CurrentPiece = gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece;
-                            gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece = null;
-                            movePiece = false;
-                            currentAnimal.Text = "Current Animal : None";
-                            changeTurns();
-                            p1Moved = true;
-                            MessageBox.Show("HALO JANCPK");
+                            // if not a water then go...
+                            movePieceTo(xButton, yButton);
+                        }
+                    }
+                    else if(xButton == xPieceChosen && yButton == yPieceChosen)
+                    {
+                        // cancel select
+                        cancelSelect();
+                    }
+                    else if (xButton == xPieceChosen || yButton == yPieceChosen)
+                    {
+                        // check wheter selected animal can jump
+                        if(gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece.CanJump)
+                        {
+                            //check sebelah air
+                            if(gBoard.mapBoard[xPieceChosen + 1, yPieceChosen].IsWater || gBoard.mapBoard[xPieceChosen, yPieceChosen + 1].IsWater || gBoard.mapBoard[xPieceChosen - 1, yPieceChosen].IsWater || gBoard.mapBoard[xPieceChosen, yPieceChosen - 1].IsWater)
+                            {
+                                // animal jump
+                                movePieceTo(xButton,yButton);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid Move!");
+                            }
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Invalid Move");
+                        // not a valid move
+                        MessageBox.Show("Invalid Move!");
                     }
                 }
-                refreshMap();
             }
             else
             {
                 //AI MOVE HERE
             }
 
-            if(p2 is Human && !p1Moved)
+            if (p2 is Human && turn == 2)
             {
                 Button tempButton = (Button)sender;
                 int xButton = -1;
@@ -186,53 +224,91 @@ namespace Chinese_Chess
                     }
                 }
 
-
+                // Check Wheter is Any Animal Selected.. ( First Click Check )
                 if (!movePiece)
                 {
+                    // check cliked is null ?
                     if (gBoard.mapBoard[xButton, yButton].CurrentPiece != null)
                     {
+                        //check wheter selected animal belongs to this player
                         if (gBoard.mapBoard[xButton, yButton].CurrentPiece.Player == turn)
                         {
-                            //First Click
-                            if (gBoard.mapBoard[xButton, yButton].CurrentPiece != null)
-                            {
-                                //Boleh Gerak karena di kotak itu ada hewan kayak kamu
-                                movePiece = true;
-                                xPieceChosen = xButton;
-                                yPieceChosen = yButton;
-                                currentAnimal.Text = $"Current Animal : {gBoard.mapBoard[xButton, yButton].CurrentPiece.Name}";
-                            }
-                            else
-                            {
-                                MessageBox.Show("Gak ada hewannya lur");
-                            }
+                            //this is first click
+                            selectPiece(xButton, yButton);
                         }
                     }
                 }
                 else
                 {
-                    //Second Click
+                    // If it's a second click :)
+                    //check whether the dest node is null and is valid move (1 tile away)
                     if (gBoard.mapBoard[xButton, yButton].CurrentPiece == null && (Math.Abs(xButton - xPieceChosen) + Math.Abs(yButton - yPieceChosen) == 1))
                     {
-                        //BOLEH GERAK
-                        gBoard.mapBoard[xButton, yButton].CurrentPiece = gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece;
-                        gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece = null;
-                        movePiece = false;
-                        currentAnimal.Text = "Current Animal : None";
-                        changeTurns();
+                        // if this a valid move then
+                        //check wheter dest node is water or not
+                        if (gBoard.mapBoard[xButton, yButton].IsWater)
+                        {
+                            // if dest is water then
+                            // check wheter current animal piece can swim, jump, or cannot both
+                            if (gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece.CanSwim)
+                            {
+                                // if current animal can swim
+                                // move current animal to dest
+                                movePieceTo(xButton, yButton);
+
+                            }
+                            else if (gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece.CanJump)
+                            {
+                                // if current animal can jump
+                                // move current animal to edge of water (Currently not working / not yet done)
+                                movePieceTo(xButton, yButton);
+                            }
+                            else
+                            {
+                                // if animal cannot move, then move is invalid
+                                MessageBox.Show("Invalid Move!");
+                            }
+                        }
+                        else
+                        {
+                            // if not a water then go...
+                            movePieceTo(xButton, yButton);
+                        }
+                    }
+                    else if (xButton == xPieceChosen && yButton == yPieceChosen)
+                    {
+                        // cancel select
+                        cancelSelect();
+                    }
+                    else if (xButton == xPieceChosen || yButton == yPieceChosen)
+                    {
+                        // check wheter selected animal can jump
+                        if (gBoard.mapBoard[xPieceChosen, yPieceChosen].CurrentPiece.CanJump)
+                        {
+                            //check sebelah air
+                            if (gBoard.mapBoard[xPieceChosen + 1, yPieceChosen].IsWater || gBoard.mapBoard[xPieceChosen, yPieceChosen + 1].IsWater || gBoard.mapBoard[xPieceChosen - 1, yPieceChosen].IsWater || gBoard.mapBoard[xPieceChosen, yPieceChosen - 1].IsWater)
+                            {
+                                // animal jump
+                                movePieceTo(xButton, yButton);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid Move!");
+                            }
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Invalid Move");
+                        // not a valid move
+                        MessageBox.Show("Invalid Move!");
                     }
                 }
-                refreshMap();
             }
             else
             {
                 //AI MOVE HERE
             }
-            
+            refreshMap();
         }
 
         //Hanya merefresh button yang ada dengan data yang ada
@@ -248,9 +324,6 @@ namespace Chinese_Chess
                         //mapButton[j, i].Image = mapBoard[j, i].CurrentPiece.Icon;
                         gBoard.mapBoard[j, i].TheButton.BackgroundImage = gBoard.mapBoard[j, i].CurrentPiece.Icon;
                         gBoard.mapBoard[j, i].TheButton.BackgroundImageLayout = ImageLayout.Center;
-
-
-
                     }
                     else
                     {
@@ -264,14 +337,8 @@ namespace Chinese_Chess
         //Hanya toggle turn player dari 1 ke 2
         private void changeTurns()
         {
-            if(turn == 1)
-            {
-                turn = 2;
-            }
-            else
-            {
-                turn = 1;
-            }
+            turn = turn==1?2:1;
+            labelTurn.Text = $"Current Turn: {turn}";
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Chinese_Chess
                 for (int j = 0; j < 7; j++)
                 {
                     //Menyiapkan variabel mapBoard
-                    mapBoard[j, i] = new SquareNode(false);
+                    mapBoard[j, i] = new SquareNode(false,false,false);
 
                     //Membuat tampilan Peta
                     mapBoard[j, i].TheButton = new Button();
