@@ -30,6 +30,7 @@
         {
             this.currentAnimal = new System.Windows.Forms.Label();
             this.labelTurn = new System.Windows.Forms.Label();
+            this.currStrengthLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // currentAnimal
@@ -45,17 +46,27 @@
             // labelTurn
             // 
             this.labelTurn.AutoSize = true;
-            this.labelTurn.Location = new System.Drawing.Point(566, 111);
+            this.labelTurn.Location = new System.Drawing.Point(566, 59);
             this.labelTurn.Name = "labelTurn";
             this.labelTurn.Size = new System.Drawing.Size(81, 13);
             this.labelTurn.TabIndex = 1;
             this.labelTurn.Text = "Current Turn : 1";
+            // 
+            // currStrengthLabel
+            // 
+            this.currStrengthLabel.AutoSize = true;
+            this.currStrengthLabel.Location = new System.Drawing.Point(566, 112);
+            this.currStrengthLabel.Name = "currStrengthLabel";
+            this.currStrengthLabel.Size = new System.Drawing.Size(119, 13);
+            this.currStrengthLabel.TabIndex = 2;
+            this.currStrengthLabel.Text = "Current Strength : None";
             // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.currStrengthLabel);
             this.Controls.Add(this.labelTurn);
             this.Controls.Add(this.currentAnimal);
             this.Name = "Game";
@@ -70,5 +81,6 @@
 
         private System.Windows.Forms.Label currentAnimal;
         private System.Windows.Forms.Label labelTurn;
+        private System.Windows.Forms.Label currStrengthLabel;
     }
 }
